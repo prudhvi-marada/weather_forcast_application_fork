@@ -12,32 +12,22 @@
 
 
     <!-- header of the page -->
-    <header class="sticky top-0">
+    <header class="sticky top-0 border ">
 
         <!-- navbar -->
-        <nav class="flex justify-between text-2xl p-3 bg-black text-white">
+        <nav class="flex flex-col items-center justify-between text-2xl p-3 border-blue-600 bg-black text-white">
 
-            <!-- logo -->
-            <section>
-                Weather_Forcast
-            </section>
+        
+            <select id="selectMethod" class="border" onclick="displaySearch()">
+                <option class="text-black" value="Current Location">Use Current Location</option>
+                <option class="text-black" value="Search City" >Search city</option>
+            </select>
 
-
-            <!-- find location -->
-            <section class="flex">
-                <div id="searchCtn" class="border hidden overflow-hidden">
-                    <i class="m-2 fa-solid fa-magnifying-glass"></i>
-                    <input class="p-1 outline-0 " placeholder="Enter city name here ..." type="text">
-                    <button class="bg-red-800 p-1 border cursor-pointer hover:bg-red-400">Search</button>
-                </div>
-                
-                <!-- dropdown method of weather search of way -->
-                <select id="selectMethod" class="border" onclick="displaySearch()">
-                    <option class="text-black" value="Current Location">Use Current Location</option>
-                    <option class="text-black" value="Search City" >Search city</option>
-                </select>
-                
-            </section>
+            <div id="searchCtn" class="border   hidden overflow-hidden mt-3">
+                <i class="m-2 fa-solid fa-magnifying-glass"></i>
+                <input class=" outline-0 text-[16px] w-[200px]" placeholder="Enter city name here ..." type="text">
+                <button class="bg-red-800 p-1 border cursor-pointer hover:bg-red-400">Search</button>
+            </div>
         </nav>
 
 
@@ -51,21 +41,21 @@
 
 
         <!-- section of current weather data  -->
-        <section class=" flex flex-col items-center h-fit rounded-2xl m-2  justify-center shadow-2xl ">
+        <section class=" flex flex-col items-center h-fit rounded-2xl m-2  justify-center shadow-2xl p-3">
             <h1 class="font-bold text-4xl">Today Weather</h1>
             <br>
-            <h2 class="font-bold text-3xl">Delhi</h2>
-           <img class="w-[200px]" src="https://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon">
-           <h2 class="text-5xl font-bold">31°C</h2>
-           <p class="font-bold text-2xl">clear sky</p>
+            <h2 class="font-bold text-3xl" id="city">Delhi</h2>
+           <img id = "currentImage" class="w-[200px]" src="https://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon">
+           <h2 class="text-5xl font-bold" id="currentTemp">31°C</h2>
+           <p class="font-bold text-2xl" id="currentDesc">clear sky</p>
            
            <section class=" w-full flex justify-between p-2">
             <div>
-                <p class="flex items-center text-[14px]"><i class="text-4xl fa-solid fa-droplet"></i>25% <br>
+                <p class="flex items-center text-[14px]" id="currentHumidity"><i class="text-4xl fa-solid fa-droplet"></i>25% <br>
                     Humidity</p>
             </div>
             <div>
-                <p class="flex items-center text-[14px]"><i class="text-4xl fa-solid fa-wind"></i>1.41Km/H<br>
+                <p class="flex items-center text-[14px]" id="currentWind"><i class="text-4xl fa-solid fa-wind"></i>1.41Km/H<br>
                 Wind</p>
             </div>
            </section>
@@ -82,8 +72,9 @@
 
 
              <!-- grid of five days    -->
-            <section class="grid grid-cols-3 gap-2   h-[80%]  ">
-                <article class="m-1 flex flex-col  p-2 h-full text-2xl shadow-xl text-white rounded-2xl bg-gradient-to-b  from-pink-950 via-pink-700 to-pink-400">
+            <section class="grid grid-cols-1 sm:grid-cols-3 gap-2   h-[80%]  ">
+               
+                <article class="m-1 flex flex-col  p-2 h-full text-2xl shadow-xl text-white rounded-2xl bg-gradient-to-b  from-blue-600  to-blue-200">
                 <h2 class="text-2xl">Sunday</h2>
                 <center>
                     <img class="w-[200px]" src="https://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon">
@@ -92,34 +83,43 @@
                 <p><strong>Wind:</strong>1.41Km/H</p>
                 <p><strong>Humidity:</strong>25%</p>
                 </article>
-                <article class="m-1 flex flex-col  p-2 h-full text-2xl shadow-xl text-white rounded-2xl bg-gradient-to-b  from-pink-950 to-pink-400">
+                <article class="m-1 flex flex-col  p-2 h-full text-2xl shadow-xl text-white rounded-2xl bg-gradient-to-b  from-blue-600  to-blue-200">
                 <h2 class="text-2xl">Sunday</h2>
-                <img class="w-[200px]" src="https://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon">
+                <center>
+                    <img class="w-[200px]" src="https://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon">
+                </center>
                 <p><strong>Temperature:</strong>31°C</p>
                 <p><strong>Wind:</strong>1.41Km/H</p>
                 <p><strong>Humidity:</strong>25%</p>
                 </article>
-                <article class="m-1 flex flex-col  p-2 h-full text-2xl shadow-xl text-white rounded-2xl bg-gradient-to-b  from-pink-950 to-pink-400">
+                <article class="m-1 flex flex-col  p-2 h-full text-2xl shadow-xl text-white rounded-2xl bg-gradient-to-b  from-blue-600  to-blue-200">
                 <h2 class="text-2xl">Sunday</h2>
-                <img class="w-[200px]" src="https://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon">
+                <center>
+                    <img class="w-[200px]" src="https://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon">
+                </center>
                 <p><strong>Temperature:</strong>31°C</p>
                 <p><strong>Wind:</strong>1.41Km/H</p>
                 <p><strong>Humidity:</strong>25%</p>
                 </article>
-                <article class="m-1 flex flex-col  p-2 h-full text-2xl shadow-xl text-white rounded-2xl bg-gradient-to-b  from-pink-950 to-pink-400">
+                <article class="m-1 flex flex-col  p-2 h-full text-2xl shadow-xl text-white rounded-2xl bg-gradient-to-b  from-blue-600  to-blue-200">
                 <h2 class="text-2xl">Sunday</h2>
-                <img class="w-[200px]" src="https://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon">
+                <center>
+                    <img class="w-[200px]" src="https://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon">
+                </center>
                 <p><strong>Temperature:</strong>31°C</p>
                 <p><strong>Wind:</strong>1.41Km/H</p>
                 <p><strong>Humidity:</strong>25%</p>
                 </article>
-                <article class="m-1 flex flex-col  p-2 h-full text-2xl shadow-xl text-white rounded-2xl bg-gradient-to-b  from-pink-950 to-pink-400">
+                <article class="m-1 flex flex-col  p-2 h-full text-2xl shadow-xl text-white rounded-2xl bg-gradient-to-b  from-blue-600  to-blue-200">
                 <h2 class="text-2xl">Sunday</h2>
-                <img class="w-[200px]" src="https://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon">
+                <center>
+                    <img class="w-[200px]" src="https://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon">
+                </center>
                 <p><strong>Temperature:</strong>31°C</p>
                 <p><strong>Wind:</strong>1.41Km/H</p>
                 <p><strong>Humidity:</strong>25%</p>
                 </article>
+               \
                 
               
             </section>

@@ -9,3 +9,16 @@ const displaySearch = ()=>{
     }
 }
 
+
+
+function renderCurrentLocationData(){
+    try {
+        
+    } catch (error) {
+        
+    }
+
+}
+
+renderCurrentLocationData();
+
